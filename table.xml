@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<catalog>
+   <table id="bk101">
+      <number>1</number>
+      <student>Yelaman</student>
+      <grade>Ecxelent</grade>
+   </table>
+   <table id="bk102">
+      <number>2</number>
+      <student>Yeldar</student>
+      <grade>Good</grade>
+   </table>
+   <table id="bk103">
+      <number>3</number>
+      <student>Dastan</student>
+      <grade>Bad</grade>
+   </table>
+   <table id="bk104">
+      <number>4</number>
+      <student>Maxim</student>
+      <grade>Good</grade>
+   </table>
+</catalog>

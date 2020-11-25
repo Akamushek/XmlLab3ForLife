@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lab 3</title>
+</head>
+
+<body>
+    <div id="content">
+        <table id="tables" cellpadding='10px' style="text-align: left;">
+            <thead>
+                <tr>
+                    <th>Number</th>
+                    <th>Student</th>
+                    <th>Grade</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        let xmlContent = '';
+        let tableRow = document.getElementById('tables');
+
+        fetch('table.xml').then((response) => {
+            response.text().then((xml) => {
+                xmlContent = xml;
+                let parser = new DOMParser();
+                let xmlDOM = parser.parseFromString(xmlContent, 'application/xml');
+                let tables = xmlDOM.querySelectorAll('table');
+
+                tables.forEach(tableXmlNode => {
+                    let row = document.createElement('tr');
+
+                    //number
+                    let td = document.createElement('td');
+                    td.innerText = tableXmlNode.children[0].innerHTML;
+                    row.appendChild(td);
+
+                    //student
+                    td = document.createElement('td');
+                    td.innerText = tableXmlNode.children[1].innerHTML;
+                    row.appendChild(td);
+
+                    //grade
+                    td = document.createElement('td');
+                    td.innerText = tableXmlNode.children[2].innerHTML;
+                    row.appendChild(td);
+
+                    tableRow.children[1].appendChild(row);
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
